@@ -3,13 +3,14 @@ package Main;
 import java.util.Scanner;
 
 import Container.Container;
+import Controller.ArticleController;
 
 public class App {
 	Scanner sc;
-	
+	private ArticleController ArticleController;
 	public App() {
 		sc = Container.scanner;
-		
+		ArticleController = new ArticleController();
 	}
 	public void run() {
 		while (true) {
@@ -17,7 +18,8 @@ public class App {
 			String command = sc.nextLine();
 			
 			if(command.equals("article list")) {
-				System.out.println("== 게시물 리스트 ==");
+				ArticleController.showList();
+				
 			}else if(command.equals("system exit")) {
 				System.out.println("== 시스템 종료 ==");
 				break;
