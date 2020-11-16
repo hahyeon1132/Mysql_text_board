@@ -8,9 +8,12 @@ import Controller.ArticleController;
 public class App {
 	Scanner sc;
 	private ArticleController ArticleController;
+	
+	
 	public App() {
 		sc = Container.scanner;
 		ArticleController = new ArticleController();
+		
 	}
 	public void run() {
 		while (true) {

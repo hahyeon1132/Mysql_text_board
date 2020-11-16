@@ -1,5 +1,8 @@
 package Dao;
 
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,18 +11,11 @@ import Dto.Article;
 public class ArticleDao {
 	List<Article> articles;
 	int lastId;
-
-	public ArticleDao() {
+	public List<Article> getarticle() {
+		
 		articles = new ArrayList<>();
 		lastId = 0;
-
-	}
-
-	public void write() {
-
-	}
-
-	public List<Article> showList() {
+		
 		Article article = new Article();
 
 		article.id = 1;
@@ -43,6 +39,23 @@ public class ArticleDao {
 
 		articles.add(article);
 
+		return articles;
+		
+
+	}
+
+	public void write() {
+
+	}
+
+	public List<Article> showList() {
+		
+		try {
+			DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/TextBoard");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return articles;
 	}
 
